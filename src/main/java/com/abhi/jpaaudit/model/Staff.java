@@ -11,16 +11,16 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "STAFF")
-//@IdClass(StaffPKId.class) // type 1
+//@IdClass(StaffPKId.class) // type 1 of Composite PrimaryKey
 public class Staff {
-    /*type 1
+    /*type 1 of Composite PrimaryKey
     @Id
     private int staffId;
     @Id
     private String email;
      */
 
-    //type 2
+    //type 2 of Composite PrimaryKey
     @EmbeddedId
     private StaffPKId staffPKId;
 
