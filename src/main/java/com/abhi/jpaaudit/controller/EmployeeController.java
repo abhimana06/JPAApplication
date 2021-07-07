@@ -5,6 +5,7 @@ import com.abhi.jpaaudit.model.InputRequest;
 import com.abhi.jpaaudit.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
@@ -12,10 +13,17 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
+@RequestMapping("/employee")
+@PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_USER')")
 public class EmployeeController {
 
     @Autowired
     private EmployeeService  employeeService;
+
+    @GetMapping("/")
+    public String getWelcomeMsg(){
+        return "Welcome to JPA Application";
+    }
 
     @PostMapping("/addEmployee")
     public String saveEmployee(@RequestBody InputRequest<Employee> request){
