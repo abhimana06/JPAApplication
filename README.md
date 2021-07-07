@@ -11,6 +11,6 @@ To implement Composite Primary key  using JPA -
   
 # Spring Security and JWT implementation
 
-Implemented Spring Security with Authentication, Authorization to APIs using JWT tokens
+Implemented Spring Security with Authentication and Authorization to APIs using JWT tokens
 
 Given access to APIs based on ROLEs
